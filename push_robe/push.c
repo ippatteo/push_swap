@@ -6,11 +6,11 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:30:52 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/11 09:30:54 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:29:49 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_pa(t_stack *stack)
 {

@@ -19,7 +19,8 @@
 # include <errno.h>
 # include <string.h>
 # include <time.h>
-# include "../libft/libft.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 
 typedef struct t_start
 {
@@ -29,6 +30,8 @@ typedef struct t_start
     int last_b;
 }	t_stack;
 
+void renum(t_stack *stack, int ac);
+void	printarray(int *i, t_stack *stack);
 void	takeints(t_stack *stack, int ac, char **av);
 int	ft_rra(t_stack *stack);
 int	ft_rrb(t_stack *stack);
