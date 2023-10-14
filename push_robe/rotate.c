@@ -20,10 +20,11 @@ int	ft_ra(t_stack *stack)
 
 	i = -1;
 	tmp = stack->a[0];
-	while (++i < stack->last_a - 1)
+	while (++i < stack->last_a)
 		stack->a[i] = stack->a[i + 1];
 	stack->a[i] = tmp;
 	write(1, "ra\n", 3);
+        stack->mosse++;
 	return (1);
 }
 
@@ -34,10 +35,11 @@ int	ft_rb(t_stack *stack)
 
 	i = -1;
 	tmp = stack->b[0];
-	while (++i < stack->last_b - 1)
+	while (++i < stack->last_b)
 		stack->b[i] = stack->b[i + 1];
 	stack->b[i] = tmp;
 	write(1, "rb\n", 3);
+        stack->mosse++;
 	return (1);
 }
 
@@ -49,14 +51,15 @@ int	ft_rr(t_stack *stack)
 
 	i = -1;
 	tmp = stack->a[0];
-	while (++i < stack->last_a - 1)
+	while (++i < stack->last_a)
 		stack->a[i] = stack->a[i + 1];
 	stack->a[i] = tmp;
 	i = -1;
 	tmp = stack->b[0];
-	while (++i < stack->last_b - 1)
+	while (++i < stack->last_b)
 		stack->b[i] = stack->b[i + 1];
 	stack->b[i] = tmp;
 	write(1, "rr\n", 3);
+        stack->mosse++;
 	return (1);
 }

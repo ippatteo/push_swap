@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:06:42 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/11 11:18:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/14 11:57:28 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,21 @@
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
 
-typedef struct t_start
+typedef struct s_stack
 {
 	int	*a;
 	int	*b;
     int last_a;
     int last_b;
+    int mosse;
+    int min;
+    int max;
 }	t_stack;
 
+int controldisord(t_stack *stack);
+ void bubble(t_stack *stack);
+int controlarray(int *i, t_stack *stack);
+void bubble(t_stack *stack);
 void renum(t_stack *stack, int ac);
 void	printarray(int *i, t_stack *stack);
 void	takeints(t_stack *stack, int ac, char **av);
