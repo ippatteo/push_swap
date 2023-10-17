@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:05:57 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/15 04:07:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:35:24 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void renum(t_stack *stack, int ac)
         while (j <= stack->last_a)
         {
             if (stack->a[j] == tmp)
-                stack->a[j] = tmp - stack->min;
+                stack->a[j] = tmp - stack->min + 1;
             j++;
         }
         tmp++;

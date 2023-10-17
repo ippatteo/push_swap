@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:06:42 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/15 03:17:00 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/17 07:59:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct s_stack
     int last_a;
     int last_b;
     int mosse;
+    int move_a;
+    int move_b;
+    int tmp;
     int min;
     int max;
 }	t_stack;
