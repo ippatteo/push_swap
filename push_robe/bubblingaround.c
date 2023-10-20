@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 04:25:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/17 20:54:43 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/20 11:49:27 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void dispari(t_stack *stack)
             ft_pb(stack);
         else
             ft_ra(stack);
-
     }
 }
-
-
+//  quando si fa la sccannerizzazione per i numeri ricordarsi che nell'eventualità di
+//avere tutto su uno strack a deve stare SOPRA e b SOTTO
+//mi traduce i numeri in posizioni e appartenenza a stack
 int calculatenumbers(int a, int b, t_stack *stack)
 {
 	int i;
@@ -33,55 +33,116 @@ int calculatenumbers(int a, int b, t_stack *stack)
 	while (i <= stack->last_a)
 	{
 		if ((t_stack->stack_a[i]) == a)
-			t_stack->move_a = i ;
+			t_stack->posa = i ;
 		if ((t_stack->stack_a[i]) == b)
-			t_stack->move_a = i ;
+			t_stack->posb = i ;
 		i++:
 	}
 	while (k <= stack->last_b)
 	{
 		if ((t_stack->stack_b[i]) == a)
-			t_stack->move_a = k ;
+			t_stack->posa = k ;
 		if ((stack->b[i]) == b)
-			t_stack->move_a = k ;
+			t_stack->posb = k ;
 		k++:
 	}
-	if (k > stack->last_b || i > stack->last_a)
-	{
-
-	}
+	if (k > stack->last_b)
+        calculate1arraya(stack);
+	else if (i > stack->last_a)
+        calculate1arrayb(stack);
 }
 
-int calculate1array(int a, int b, t_stack *stack, int *ab)
+void calculate1arraya(t_stack *stack)
+{ 
+    stack->mosse = 2000000;
+	if (stack->a[stack->posa] > stack->a[stack->posb])
+        smistamentostaamagb(stack);
+    if (stack->a[stack->posa] < stack->a[stack->posb])
+        smistamentostaaminb(stack);           
+}
+
+void smistamentostaamagb(t_stack *stack)
 {
-	if (a > b)
-	{
-		if (ab[a] < ab[b])
-
-
-	}
+    if (stack->posb + n(stack->posa, stack->a))
+    {
+        stack->mosse = stack->posb + n(stack->posa, stack->a);
+        stack->move = 1;
+    }
+    if (stack->mosse > (2*(stack->posa + n(stack->posa, stack->a)) 
+            + (stack->last_a - stack->posb)))
+    {
+        stack->mosse = (2*(stack->posa + n(stack->posa, stack->a)) 
+        + (stack->last_a - stack->posb));
+        stack->move = 2;
+    }
+    if (stack->mosse > (2*(stack->posa + n(stack->posa, stack->a)) 
+         + (stack->last_a - stack->posb)))
+    {
+        stack->mosse = ((stack->last_a - stack->posa) - 1 + n(stack->posb, stack->a));
+        stack->move = 3;
+    }
+    if (stack->mosse > 2*(stack->last_a - stack->posb) + 3* n(stack->posb, stack->a) + stack->posa)
+    {
+        stack->mosse = 2*(stack->last_a - stack->posb) + 3* n(stack->posb, stack->a) + stack->posa;
+        stack->move = 4;
+    }     
 }
+
+void smistamentostaaminb(t_stack *stack)
+{
+         if (stack->mosse > stack->posb + n(stack->posa, stack->a))
+        {
+            stack->mosse = stack->posb + n(stack->posa, stack->a);
+            stack->move = 1;
+        }
+        if (stack->mosse > (2*stack->posa + last - stack->posb +3))
+        {
+            stack->mosse = 2*stack->posa + last - stack->posb +3;
+            stack->move = 2;
+        }
+        if (stack->mosse > (stack->last_a + 2 * n(stack->posb, stack->a) + 1
+             - n(stack->posa, stack->a) - stack->posb))
+        {
+            stack->mosse = stack->last_a + 2 * n(stack->posb, stack->a) + 1
+                - n(stack->posa, stack->a) - stack->posb;
+            stack->move = 3;
+        }
+        if (stack->mosse > 2*(stack->last_a - stack->posb) 
+            + 2 + stack->posa + n(stack->posa, stack->a) + n(stack->posb, stack->a))
+        {
+            stack->mosse = 2*(stack->last_a - stack->posb) 
+            + 2 + stack->posa + n(stack->posa, stack->a) + n(stack->posb, stack->a);
+            stack->move = 4;
+        }     
+    }
+
+
+int na()
+
+
+int nb()
 
 int calculate2array(int a, int b)
 {
     int tmp;
-
-    tmp = 0;
+//tmp deve essere risettato sulla funzione di scan di tutto
+//calculate array e altri sono solo funzioni di controlloti tipo if(tmp > calculate(...)
+    stack->mosse = 2000000;
     if (a >= b)
     {
         tmp = a;
-        if ((stack->last_b + 1 - b) < tmp)
-            tmp = stack->last_b + 1 - b;
-        if((stack->last_a + 1 - a) + b < tmp)
-            tmp = (stack->last_a + 1 - a) + b;
+        if ((stack->last_b + 1 - b + 1) < tmp)
+            tmp = stack->last_b + 1 - b + 1 ;
+        if((stack->last_a + 1 - a + 1) + b < tmp)
+            tmp = (stack->last_a + 1 - a + 1) + b;
     }
     else if (a < b)
     {
         tmp = b;
-        if ((stack->last_a + 1 - a) < tmp)
-            tmp = stack->last_a + 1 - a;
-        if((stack->last_b + 1 - b) + a < tmp)
-            tmp = (stack->last_b + 1 - b) + a;
+        if ((stack->last_a + 1 - a) < tmp + 1)
+            tmp = stack->last_a + 1 - a + 1;
+        if((stack->last_b + 1 - b) + a < tmp + 1)
+            tmp = (stack->last_b + 1 - b) + a + 1;
     }
     return  (tmp);
 	/*bisogna far si che calculatemoves si calcoli le mosse partendo da i numeri e non dalle poisizioni, se e' versatile
@@ -101,10 +162,10 @@ int decidenumbers(t_stack *stack)
             {
 				while (k <= stack->last_a)
 				{
-					if (stack->stack_a[k] == stack->move_b + 1 || stack->stack_a[k] == stack->move_b - 1)
+					if (stack->stack_a[k] == stack->posb + 1 || stack->stack_a[k] == stack->posb - 1)
 					{
-						if (tmp > calculatemoves(stack->move_a, stack->move_b))
-							stack->move_a = k;
+						if (tmp > calculatemoves(stack->posa, stack->posb))
+							stack->posa = k;
 						k++;
 					}
 				}
@@ -127,8 +188,8 @@ while (k <= stack->last_b)
 		{
 			if (tmp > calculatemoves(i, k))
 			{
-				stack->move_a = i;
-				stack->move_b = k;
+				stack->posa = i;
+				stack->posb = k;
 				tmp = calculatemoves(i, k);
 			}
 		}

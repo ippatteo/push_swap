@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:05:57 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/15 04:35:24 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:25:50 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,15 @@ void	takeints(t_stack *stack, int ac, char **av)
 
     stack->a = (int *)malloc(sizeof(int) * (ac - 1));
     stack->b = (int *)malloc(sizeof(int) * (ac - 1));
-    //stack->ia = (int *)malloc(sistack->aeof(int) * (ac - 1));
-    //stack->ib = (int *)malloc(sistack->aeof(int) * (ac - 1));
+    stack->copy = (int *)malloc(sistack->aeof(int) * (ac - 1));
     j = 0;
     while (j <= ac - 2)
 	{
 		stack->a[j] = ft_atoi(av[j + 1]);
+        stack->copy[j] = ft_atoi(av[j + 1]);
         stack->last_a = j;
         j++;
 	}
-    //stack->ia[j++] = ft_atoi(av[i++]);
-    //find_duple(stack->a, j);
-
     stack->last_b = 0;
 }
 
