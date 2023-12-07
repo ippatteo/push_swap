@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bubblingaround.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteocamilli <matteocamilli@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 04:25:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/20 11:49:27 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:40:08 by matteocamil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ int calculatenumbers(int a, int b, t_stack *stack)
 
 	while (i <= stack->last_a)
 	{
-		if ((t_stack->stack_a[i]) == a)
-			t_stack->posa = i ;
-		if ((t_stack->stack_a[i]) == b)
-			t_stack->posb = i ;
+		if ((stack->stack_a[i]) == a)
+			stack->posa = i ;
+		if ((stack->stack_a[i]) == b)
+			stack->posb = i ;
 		i++:
 	}
 	while (k <= stack->last_b)
 	{
-		if ((t_stack->stack_b[i]) == a)
-			t_stack->posa = k ;
+		if ((stack->stack_b[i]) == a)
+			stack->posa = k ;
 		if ((stack->b[i]) == b)
-			t_stack->posb = k ;
+			stack->posb = k ;
 		k++:
 	}
 	if (k > stack->last_b)
