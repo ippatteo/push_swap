@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   renum.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 20:30:10 by mcamilli          #+#    #+#             */
+/*   Updated: 2023/12/07 20:53:37 by mcamilli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void renum(t_stack *stack, int ac)
 {
@@ -63,6 +73,8 @@ void renum(t_stack *stack, int ac)
     
 }
 
+
+//funzioni per versione alternativa di renum
 void lookingfor(t_stack *stack, int tmp2, int a)
 {
      while (j <= ac - 2)
