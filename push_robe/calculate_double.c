@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/07 22:54:10 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/08 23:36:26 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@ typedef struct s_stack
     int movetmp //identificativo mosse prov
     int numtmp //numero + o - provvisorio
     int nt //numero + o - def
+	int stck; //s
 }	t_stack;
 /*ogni numero viene calcolato, una funzione cerca quello prima e quello dopo, se nello stack b sono
  adiacenti allora la funzione le salta*/
 
 /*questa funzione serve per spazzolare tutti e due gli array*/
 
- int choosenumbers(t_stack *stack)
- {
+int choosenumbers(t_stack *stack)
+{
     int i;
 	int k;
+	int tmp;
 
     m = 2000000
 	while (i <= stack->last_a)
@@ -48,7 +50,7 @@ typedef struct s_stack
             m = move;
 		k++:
 	}
- }
+}
 
 
 
@@ -157,7 +159,7 @@ int takeminorone(t_stack *stack, int x, int ac)
 
 	while (i <= stack->last_a)
 	{   
-		if (stack->a[i] = ac - 2)
+		if (stack->a[i] = stack->max)
         {
         	if(x = stack->a[i - 1])
 				return (-1);
@@ -167,7 +169,7 @@ int takeminorone(t_stack *stack, int x, int ac)
 	}
 	while (k <= stack->last_b)
 	{
-		if (stack->b[k] = ac - 2)
+		if (stack->b[k] = stack->max)
         {
             if(x = stack->b[k + 1])
 				return (-1);
@@ -185,8 +187,137 @@ int takeminorone(t_stack *stack, int x, int ac)
 
  /*ora serve una funzione che per ogni numero calcoli le mosse*/
 
- int mosse_e_numeri(t_stack *stack, int x)
- {
+int mosse_e_numeri(t_stack *stack, int x)
+{
     int	y;
-	y = take;
- }
+	int tmp;
+	
+	y = takemajor(stack, x);
+	if (x = stack->max)
+		y = takeminorone(stack, x)
+	mosse(stack, x, y);
+	
+	y = takeminor(x, y);
+	if (x = 1)
+		y = takemajorac(stack, x)
+	if (tmp > mosse(x, y))
+		tmp = mosse(x, y);
+	
+}
+int mossemajor(t_stack *stack, int x, int y)
+{
+	int y;
+	
+	y = takemajor(stack, x);
+	if (move > mossa1(x, y))
+	{
+		move = mossa1(x, y);
+		id = 1
+		
+	}
+	return (tmp);
+	
+}
+//capisce se x e y stanno in uno o due stack e quali
+void calculatestacks(int x, int y, t_stack *stack)
+{
+	int i;
+	int k;
+
+	while (i <= stack->last_a)
+	{
+		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
+			stack->stck += 10 ;
+		
+		i++:
+	}
+	while (k <= stack->last_b)
+	{
+		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
+			stack->stck += 1 ;
+		k++:
+	}
+}
+
+/*in base a dove stanno i valori ci dice la funzione da utilizzare per calcolare le mosse*/
+void smistamento(int x, int y, t_stack *stack)
+{
+	calculatestacks(x, y, stack)
+	if (stack->stck = 11)
+		doublemoves()
+	if (stack->stck = 2)
+		monomoves_b(x, y, stack);
+	if (stack->stck = 20)
+		monomoves_a(x, y, stack);
+		
+}
+//trova la posizione a e b nei due stack
+void positionsdouble(int x, int y, t_stack *stack)
+{
+	while (i <= stack->last_a)
+	{
+		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
+		{
+			stack->posa = i;
+			break;
+		}
+		i++;
+	}
+	while (k <= stack->last_b)
+	{
+		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
+		{
+			stack->posb = k;
+			break;
+		}
+		k++:
+	}
+}
+
+void doublemoves(int x, int y, t_stack *stack)
+{
+	positionsdouble(x, y, stack);
+	if (stack->a[stack->posa] > stack->b[stack->posb] && stack->posa > stack->posb)
+	else if (stack->a[stack->posa] < stack->b[stack->posb] && stack->posa > stack->posb)
+	else if (stack->a[stack->posa] < stack->b[stack->posb] && stack->posa < stack->posb)
+	else (stack->a[stack->posa] > stack->b[stack->posb] && stack->posa < stack->posb)
+}
+
+
+//trova a e b nei singoli stacks
+void positionssingle(int x, int y, t_stack *stack)
+{
+	int i;
+	int k;
+
+	while (i <= stack->last_a)
+	{
+		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
+			stack->posa = i ;
+		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
+			stack->posb = i ;
+		i++:
+	}
+	while (k <= stack->last_b)
+	{
+		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
+			stack->posa = k ;
+		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
+			stack->posb = k ;
+		k++:
+	}
+}
+void monomoves_a(int x, int y, t_stack *stack)
+{
+	positionssingle(x, y, stack);
+}
+
+void monomoves_b(int x, int y, t_stack *stack)
+{
+	positionssingle(x, y, stack);
+}
+
+
+
+		
+	
