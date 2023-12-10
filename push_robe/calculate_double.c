@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/08 23:36:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:08:30 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
     int numtmp //numero + o - provvisorio
     int nt //numero + o - def
 	int stck; //s
+	int yt; //l'altro y
 }	t_stack;
 /*ogni numero viene calcolato, una funzione cerca quello prima e quello dopo, se nello stack b sono
  adiacenti allora la funzione le salta*/
@@ -37,9 +38,7 @@ int choosenumbers(t_stack *stack)
     m = 2000000
 	while (i <= stack->last_a)
 	{   
-        move = mosse(stack->a[i])
-		if (move < m)
-            m = move;
+        
        
 		i++:
 	}
@@ -105,7 +104,7 @@ int takemajor(t_stack *stack, int x)
 		if (stack->a[i] = x + 1)
         {
         	if(x = stack->a[i - 1])
-				return (-1);
+				return (0);
 			return (stack->a[i]);
         }
 		i++;
@@ -115,7 +114,7 @@ int takemajor(t_stack *stack, int x)
 		if (stack->b[k] = x + 1)
         {
             if(x = stack->a[k + 1])
-				return (-1);
+				return (0);
 			return (stack->b[k]);
         }
 		k++;
@@ -134,7 +133,7 @@ int takemajorac(t_stack *stack, int x)
 		if (stack->a[i] = 1)
         {
         	if(x = stack->a[i - 1])
-				return (-1);
+				return (0);
 			return (stack->a[i]);
         }
 		i++;
@@ -144,7 +143,7 @@ int takemajorac(t_stack *stack, int x)
 		if (stack->b[k] = 1)
         {
             if(x = stack->b[k + 1])
-				return (-1);
+				return (0);
 			return (stack->b[k]);
         }
 		k++;
@@ -162,7 +161,7 @@ int takeminorone(t_stack *stack, int x, int ac)
 		if (stack->a[i] = stack->max)
         {
         	if(x = stack->a[i - 1])
-				return (-1);
+				return (0);
 			return (stack->a[i]);
         }
 		i++;
@@ -172,7 +171,7 @@ int takeminorone(t_stack *stack, int x, int ac)
 		if (stack->b[k] = stack->max)
         {
             if(x = stack->b[k + 1])
-				return (-1);
+				return (0);
 			return (stack->b[k]);
         }
 		k++;
@@ -240,13 +239,22 @@ void calculatestacks(int x, int y, t_stack *stack)
 }
 
 /*in base a dove stanno i valori ci dice la funzione da utilizzare per calcolare le mosse*/
-void smistamento(int x, int y, t_stack *stack)
+void smistamento(int x, t_stack *stack)
 {
+	int y;
+
+	y =
 	calculatestacks(x, y, stack)
 	if (stack->stck = 11)
+	{
+		positionsdouble()
+			if(na() = -1)
 		doublemoves()
+	}
+		
 	if (stack->stck = 2)
 		monomoves_b(x, y, stack);
+	
 	if (stack->stck = 20)
 		monomoves_a(x, y, stack);
 		
@@ -284,38 +292,67 @@ void doublemoves(int x, int y, t_stack *stack)
 }
 
 
-//trova a e b nei singoli stacks
-void positionssingle(int x, int y, t_stack *stack)
+
+
+//funzione per capire se i numeri trattati sono gia uniti
+int checkna(int x, t_stack *stack)
 {
 	int i;
-	int k;
-
+	
 	while (i <= stack->last_a)
 	{
-		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
-			stack->posa = i ;
-		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
-			stack->posb = i ;
+		if (stack->stack_a[i] == x && stack->stack_a[i-1] == 
+		x-1 && stack->stack_a[i+1] == x+1)
+			return(0);
 		i++:
 	}
-	while (k <= stack->last_b)
+	i = 0;
+	while (i <= stack->last_b)
 	{
-		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
-			stack->posa = k ;
-		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
-			stack->posb = k ;
-		k++:
+		if (stack->stack_b[i] == x && stack->stack_b[i-1] == x+1 && 
+		stack->stack_b[i+1] == x-1)
+			return (0);
+		i++;
 	}
-}
-void monomoves_a(int x, int y, t_stack *stack)
-{
-	positionssingle(x, y, stack);
+	return (1);
 }
 
-void monomoves_b(int x, int y, t_stack *stack)
+//funzione principale
+void mosse(int x, t_stack *stack)
 {
-	positionssingle(x, y, stack);
+	int y;
+	
+	y = 0;
+	if (x == stack->max && takemajorac())
+	{
+		y = takemajorac();
+		smistamento();
+	}
+	if (takemajor() && x != stack->max)
+	{
+		y = takemajor();
+		smistamento();
+	}
+	if (takeminor() && x != 1)
+	{
+		y = takeminor();
+		smistamento();
+	}
+	if (x == 1 && takeminorone())
+	{
+		y = takeminorone();
+		smistamento();
+	}	
 }
+
+
+
+
+
+
+
+
+
 
 
 

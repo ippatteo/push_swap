@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:06:42 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/20 11:52:20 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:04:29 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ int	ft_sb(t_stack *stack);
 int	ft_ss(t_stack *stack);
 int	ft_pa(t_stack *stack);
 int	ft_pb(t_stack *stack);
+int choosenumbers(t_stack *stack);
 #endif

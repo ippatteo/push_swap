@@ -6,14 +6,14 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 23:42:52 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/08 23:45:19 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/10 16:15:04 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //trova a e b nei singoli stacks
-void positionssingle(int x, int y, t_stack *stack)
+void positionsingle(int x, int y, t_stack *stack)
 {
 	int i;
 	int k;
