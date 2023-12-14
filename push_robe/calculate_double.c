@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/10 19:08:30 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 05:15:30 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,28 @@ typedef struct s_stack
 /*ogni numero viene calcolato, una funzione cerca quello prima e quello dopo, se nello stack b sono
  adiacenti allora la funzione le salta*/
 
+//funzione principale
+void mosse(int x, t_stack *stack)
+{
+	int y;
+
+	y = 0;
+	if (x == stack->max && takemajorac())
+	{
+		y = takemajorac();
+		smistamento();
+	}
+	if (takemajor() && x != stack->max)
+	{
+		y = takemajor();
+		smistamento();
+	}
+	if (x == 1 && takeminorone())
+	{
+		y = takeminorone();
+		smistamento();
+	}
+}
 /*questa funzione serve per spazzolare tutti e due gli array*/
 
 int choosenumbers(t_stack *stack)
@@ -35,22 +57,24 @@ int choosenumbers(t_stack *stack)
 	int k;
 	int tmp;
 
-    m = 2000000
-	while (i <= stack->last_a)
-	{   
-        
-       
-		i++:
-	}
+	k = 0;
 	while (k <= stack->last_b)
 	{
-		move = mosse(stack->b[k])
-		if (move < m)
-            m = move;
-		k++:
+		mosse(stack->b[k], stack)
+		k++;
 	}
 }
+int nanbcontrol(t_stack *stack)
+{
+	int k;
 
+	k = 0;
+	while (k <= stack->last_b)
+	{
+		mosse(stack->b[k], stack)
+		k++;
+	}
+}
 
 
  /*dentro mosse ci possono
@@ -65,13 +89,13 @@ int takeminor(t_stack *stack, int x)
 	int k;
 
 	while (i <= stack->last_a)
-	{   
+	{
 		if (stack->a[i] = x - 1)
         {
             if(x = stack->a[i + 1])
-				return (-1);
+				return (0);
 			return (stack->a[i]);
-        }        
+        }
         i++:
 	}
 	while (k <= stack->last_b)
@@ -79,7 +103,7 @@ int takeminor(t_stack *stack, int x)
 		if (stack->b[k] = x - 1)
         {
             if(x = stack->b[k - 1])
-				return (-1);
+				return (0);
 			return (stack->b[k]);
         }
 		k++;
@@ -92,15 +116,15 @@ int takeminor(t_stack *stack, int x)
 
 
 
- 
- 
+
+
 int takemajor(t_stack *stack, int x)
 {
     int i;
 	int k;
 
 	while (i <= stack->last_a)
-	{   
+	{
 		if (stack->a[i] = x + 1)
         {
         	if(x = stack->a[i - 1])
@@ -122,14 +146,14 @@ int takemajor(t_stack *stack, int x)
 	return (0);
 }
 
- 
+
 int takemajorac(t_stack *stack, int x)
 {
     int i;
 	int k;
 
 	while (i <= stack->last_a)
-	{   
+	{
 		if (stack->a[i] = 1)
         {
         	if(x = stack->a[i - 1])
@@ -157,7 +181,7 @@ int takeminorone(t_stack *stack, int x, int ac)
 	int k;
 
 	while (i <= stack->last_a)
-	{   
+	{
 		if (stack->a[i] = stack->max)
         {
         	if(x = stack->a[i - 1])
@@ -182,7 +206,7 @@ int takeminorone(t_stack *stack, int x, int ac)
 
 
 
- 
+
 
  /*ora serve una funzione che per ogni numero calcoli le mosse*/
 
@@ -190,32 +214,32 @@ int mosse_e_numeri(t_stack *stack, int x)
 {
     int	y;
 	int tmp;
-	
+
 	y = takemajor(stack, x);
 	if (x = stack->max)
 		y = takeminorone(stack, x)
 	mosse(stack, x, y);
-	
+
 	y = takeminor(x, y);
 	if (x = 1)
 		y = takemajorac(stack, x)
 	if (tmp > mosse(x, y))
 		tmp = mosse(x, y);
-	
+
 }
 int mossemajor(t_stack *stack, int x, int y)
 {
 	int y;
-	
+
 	y = takemajor(stack, x);
 	if (move > mossa1(x, y))
 	{
 		move = mossa1(x, y);
 		id = 1
-		
+
 	}
 	return (tmp);
-	
+
 }
 //capisce se x e y stanno in uno o due stack e quali
 void calculatestacks(int x, int y, t_stack *stack)
@@ -227,7 +251,7 @@ void calculatestacks(int x, int y, t_stack *stack)
 	{
 		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
 			stack->stck += 10 ;
-		
+
 		i++:
 	}
 	while (k <= stack->last_b)
@@ -251,13 +275,13 @@ void smistamento(int x, t_stack *stack)
 			if(na() = -1)
 		doublemoves()
 	}
-		
+
 	if (stack->stck = 2)
 		monomoves_b(x, y, stack);
-	
+
 	if (stack->stck = 20)
 		monomoves_a(x, y, stack);
-		
+
 }
 //trova la posizione a e b nei due stack
 void positionsdouble(int x, int y, t_stack *stack)
@@ -286,63 +310,29 @@ void doublemoves(int x, int y, t_stack *stack)
 {
 	positionsdouble(x, y, stack);
 	if (stack->a[stack->posa] > stack->b[stack->posb] && stack->posa > stack->posb)
+	{
+
+
+
+	}
 	else if (stack->a[stack->posa] < stack->b[stack->posb] && stack->posa > stack->posb)
+	{
+
+
+
+	}
 	else if (stack->a[stack->posa] < stack->b[stack->posb] && stack->posa < stack->posb)
+	{
+
+
+
+	}
 	else (stack->a[stack->posa] > stack->b[stack->posb] && stack->posa < stack->posb)
-}
+	{
 
 
 
-
-//funzione per capire se i numeri trattati sono gia uniti
-int checkna(int x, t_stack *stack)
-{
-	int i;
-	
-	while (i <= stack->last_a)
-	{
-		if (stack->stack_a[i] == x && stack->stack_a[i-1] == 
-		x-1 && stack->stack_a[i+1] == x+1)
-			return(0);
-		i++:
 	}
-	i = 0;
-	while (i <= stack->last_b)
-	{
-		if (stack->stack_b[i] == x && stack->stack_b[i-1] == x+1 && 
-		stack->stack_b[i+1] == x-1)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-//funzione principale
-void mosse(int x, t_stack *stack)
-{
-	int y;
-	
-	y = 0;
-	if (x == stack->max && takemajorac())
-	{
-		y = takemajorac();
-		smistamento();
-	}
-	if (takemajor() && x != stack->max)
-	{
-		y = takemajor();
-		smistamento();
-	}
-	if (takeminor() && x != 1)
-	{
-		y = takeminor();
-		smistamento();
-	}
-	if (x == 1 && takeminorone())
-	{
-		y = takeminorone();
-		smistamento();
-	}	
 }
 
 
@@ -355,6 +345,3 @@ void mosse(int x, t_stack *stack)
 
 
 
-
-		
-	
