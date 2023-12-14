@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/14 06:27:38 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 06:46:22 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,226 +102,45 @@ void choosenumbers0(t_stack *stack)
 		ft_pa(stack);
 }
 
-int start(t_stack *stack)
-{
-	if (checktotal(stack))
-	{
-
-	}
-	else
-	{
-
-	}
-}
-int nanbcontrol(t_stack *stack)
-{
-	int k;
-
-	k = 0;
-	while (k <= stack->last_b)
-	{
-		mosse(stack->b[k], stack)
-		k++;
-	}
-}
 
 
  /*dentro mosse ci possono
          esssere var che sanno
          il valor di mosse da fare e forse numero*/
 
-/*ora serve una funzione che si trovi n prima e n dopo*/
-
-int takeminor(t_stack *stack, int x)
-{
-    int i;
-	int k;
-
-	while (i <= stack->last_a)
-	{
-		if (stack->a[i] = x - 1)
-        {
-            if(x = stack->a[i + 1])
-				return (0);
-			return (stack->a[i]);
-        }
-        i++:
-	}
-	while (k <= stack->last_b)
-	{
-		if (stack->b[k] = x - 1)
-        {
-            if(x = stack->b[k - 1])
-				return (0);
-			return (stack->b[k]);
-        }
-		k++;
-	}
-	return (0);
-}
-
-
-
-
-
-
-
-
-int takemajor(t_stack *stack, int x)
-{
-    int i;
-	int k;
-
-	while (i <= stack->last_a)
-	{
-		if (stack->a[i] = x + 1)
-        {
-        	if(x = stack->a[i - 1])
-				return (0);
-			return (stack->a[i]);
-        }
-		i++;
-	}
-	while (k <= stack->last_b)
-	{
-		if (stack->b[k] = x + 1)
-        {
-            if(x = stack->a[k + 1])
-				return (0);
-			return (stack->b[k]);
-        }
-		k++;
-	}
-	return (0);
-}
-
-
-int takemajorac(t_stack *stack, int x)
-{
-    int i;
-	int k;
-
-	while (i <= stack->last_a)
-	{
-		if (stack->a[i] = 1)
-        {
-        	if(x = stack->a[i - 1])
-				return (0);
-			return (stack->a[i]);
-        }
-		i++;
-	}
-	while (k <= stack->last_b)
-	{
-		if (stack->b[k] = 1)
-        {
-            if(x = stack->b[k + 1])
-				return (0);
-			return (stack->b[k]);
-        }
-		k++;
-	}
-	return (0);
-}
-
-int takeminorone(t_stack *stack, int x, int ac)
-{
-    int i;
-	int k;
-
-	while (i <= stack->last_a)
-	{
-		if (stack->a[i] = stack->max)
-        {
-        	if(x = stack->a[i - 1])
-				return (0);
-			return (stack->a[i]);
-        }
-		i++;
-	}
-	while (k <= stack->last_b)
-	{
-		if (stack->b[k] = stack->max)
-        {
-            if(x = stack->b[k + 1])
-				return (0);
-			return (stack->b[k]);
-        }
-		k++;
-	}
-	return (0);
-}
-
-
-
-
-
-
- /*ora serve una funzione che per ogni numero calcoli le mosse*/
-
-int mosse_e_numeri(t_stack *stack, int x)
-{
-    int	y;
-	int tmp;
-
-	y = takemajor(stack, x);
-	if (x = stack->max)
-		y = takeminorone(stack, x)
-	mosse(stack, x, y);
-
-	y = takeminor(x, y);
-	if (x = 1)
-		y = takemajorac(stack, x)
-	if (tmp > mosse(x, y))
-		tmp = mosse(x, y);
-
-}
-int mossemajor(t_stack *stack, int x, int y)
-{
-	int y;
-
-	y = takemajor(stack, x);
-	if (move > mossa1(x, y))
-	{
-		move = mossa1(x, y);
-		id = 1
-
-	}
-	return (tmp);
-
-}
 //capisce se x e y stanno in uno o due stack e quali
-void calculatestacks(int x, int y, t_stack *stack)
+int calculatestacks(int x, int y, t_stack *stack)
 {
 	int i;
-	int k;
+	int stk;
 
+	stk = 0;
+	i = 0;
 	while (i <= stack->last_a)
 	{
-		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
-			stack->stck += 10 ;
+		if (stack->a[i] == x || stack->a[i] == y)
+			 stk += 10 ;
 
-		i++:
+		i++;
 	}
-	while (k <= stack->last_b)
+	i = 0;
+	while (i <= stack->b)
 	{
-		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
-			stack->stck += 1 ;
-		k++:
+		if (stack->b[i] == x || stack->b[i] == y)
+			stk += 1 ;
+		i++;
 	}
 }
 
 /*in base a dove stanno i valori ci dice la funzione da utilizzare per calcolare le mosse*/
-void smistamento(int x, t_stack *stack)
+void smistamento(int x, int, t_stack *stack)
 {
-	int y;
+	int stk;
 
-	y =
-	calculatestacks(x, y, stack)
+	stk = calculatestacks(x, y, stack)
 	if (stack->stck = 11)
 	{
 		positionsdouble()
-			if(na() = -1)
 		doublemoves()
 	}
 

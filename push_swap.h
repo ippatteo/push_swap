@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:06:42 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/08 18:04:29 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 06:49:25 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_stack
     int max;
 }	t_stack;
 
-void ordinededdio(t_stack *stack, int ac);
+int		checkna(int x, t_stack *stack);
+void	ordinededdio(t_stack *stack, int ac);
 void decide(t_stack *stack);
 int controldisord_rra(t_stack *stack);
 int controldisord_rrb(t_stack *stack);

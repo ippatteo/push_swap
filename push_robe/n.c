@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:13:38 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/14 06:20:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 06:49:43 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int checkna(int x, t_stack *stack)
 
 	while (i <= stack->last_a)
 	{
-		if (stack->stack_a[i] == x && stack->stack_a[i-1] ==
+		if (stack->a[i] == x && stack->stack_a[i-1] ==
 		x-1 && stack->stack_a[i+1] == x+1)
 			return(0);
 		i++:
