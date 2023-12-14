@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/14 05:15:30 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 06:27:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,35 +33,84 @@ void mosse(int x, t_stack *stack)
 	int y;
 
 	y = 0;
-	if (x == stack->max && takemajorac())
-	{
-		y = takemajorac();
-		smistamento();
-	}
 	if (takemajor() && x != stack->max)
 	{
 		y = takemajor();
 		smistamento();
 	}
-	if (x == 1 && takeminorone())
+}
+
+void mosse2(int x, t_stack *stack)
+{
+	int y;
+
+	y = 0;
+	if (takemajor() && x != stack->max)
 	{
-		y = takeminorone();
+		y = takemajor();
+		smistamento();
+	}
+	if (takemajoraac() && x == stack->max)
+	{
+		y = takemajorac();
+		smistamento();
+	}
+	if (takeminor() && x != 1)
+	{
+		y = takemajor();
+		smistamento();
+	}
+	if (takeminorone() && x == 1)
+	{
+		y = takemajorone();
 		smistamento();
 	}
 }
-/*questa funzione serve per spazzolare tutti e due gli array*/
+/*questa funzione serve per spazzolare gli array all'inizio*/
 
-int choosenumbers(t_stack *stack)
+void choosenumbers0(t_stack *stack)
 {
-    int i;
 	int k;
-	int tmp;
 
-	k = 0;
-	while (k <= stack->last_b)
+	while (!checktotal(stack))
 	{
-		mosse(stack->b[k], stack)
-		k++;
+		k = 0;
+		while (k <= stack->last_b)
+		{
+			mosse(stack->b[k], stack);
+			k++;
+		}
+		azionamosse
+	}
+	while (!finalpush(stack))
+	{
+		k = 0;
+		while (k <= stack->last_b)
+		{
+			mosse2(stack->b[k], stack)
+			k++;
+		}
+		k = 0;
+		while (k <= stack->last_b)
+		{
+			mosse2(stack->b[k], stack)
+			k++;
+		}
+		azionamosse
+	}
+	while (stack->last_b != 0)
+		ft_pa(stack);
+}
+
+int start(t_stack *stack)
+{
+	if (checktotal(stack))
+	{
+
+	}
+	else
+	{
+
 	}
 }
 int nanbcontrol(t_stack *stack)
