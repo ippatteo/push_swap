@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/14 06:46:22 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:40:29 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int calculatestacks(int x, int y, t_stack *stack)
 }
 
 /*in base a dove stanno i valori ci dice la funzione da utilizzare per calcolare le mosse*/
-void smistamento(int x, int, t_stack *stack)
+void smistamento(int x, int y, t_stack *stack)
 {
 	int stk;
 
@@ -144,6 +144,24 @@ void smistamento(int x, int, t_stack *stack)
 		doublemoves()
 	}
 
+	if (stack->stck = 2)
+		monomoves_b(x, y, stack);
+
+	if (stack->stck = 20)
+		monomoves_a(x, y, stack);
+
+}
+
+void smistamento2(int x, int y, t_stack *stack)
+{
+	int stk;
+
+	stk = calculatestacks(x, y, stack)
+	if (stack->stck = 11)
+	{
+		positionsdouble()
+		doublemoves()
+	}
 	if (stack->stck = 2)
 		monomoves_b(x, y, stack);
 
