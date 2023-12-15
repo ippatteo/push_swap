@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/14 07:40:29 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/14 16:41:44 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void mosse(int x, t_stack *stack)
 	int y;
 
 	y = 0;
-	if (takemajor() && x != stack->max)
+	if (takemajor(stack, x) && x != stack->max)
 	{
-		y = takemajor();
-		smistamento();
+		y = takemajor(stack, x);
+		smistamento(stack, x);
 	}
 }
 
@@ -45,25 +45,25 @@ void mosse2(int x, t_stack *stack)
 	int y;
 
 	y = 0;
-	if (takemajor() && x != stack->max)
+	if (takemajor(stack, x) && x != stack->max)
 	{
-		y = takemajor();
-		smistamento();
+		y = takemajor(stack, x);
+		smistamento(stack, x);
 	}
-	if (takemajoraac() && x == stack->max)
-	{
-		y = takemajorac();
-		smistamento();
+	if (takemajoraac(stack, x, stack->max) && x == stack->max)
+	{stack, x
+		y = takemajorac(stack, x, stack->max);
+		smistamento(stack, x, stack->max);
 	}
-	if (takeminor() && x != 1)
+	if (takeminor(stack, x) && x != 1)
 	{
-		y = takemajor();
-		smistamento();
+		y = takemajor(stack, x);
+		smistamento(stack, x);
 	}
-	if (takeminorone() && x == 1)
+	if (takeminorone(stack, x) && x == 1)
 	{
-		y = takemajorone();
-		smistamento();
+		y = takemajorone(stack, x);
+		smistamento(stack, x);
 	}
 }
 /*questa funzione serve per spazzolare gli array all'inizio*/
@@ -140,10 +140,8 @@ void smistamento(int x, int y, t_stack *stack)
 	stk = calculatestacks(x, y, stack)
 	if (stack->stck = 11)
 	{
-		positionsdouble()
 		doublemoves()
 	}
-
 	if (stack->stck = 2)
 		monomoves_b(x, y, stack);
 
@@ -157,15 +155,14 @@ void smistamento2(int x, int y, t_stack *stack)
 	int stk;
 
 	stk = calculatestacks(x, y, stack)
-	if (stack->stck = 11)
+	if (stk = 11)
 	{
-		positionsdouble()
-		doublemoves()
+		return
 	}
-	if (stack->stck = 2)
+	if (stk = 2)
 		monomoves_b(x, y, stack);
 
-	if (stack->stck = 20)
+	if (stk = 20)
 		monomoves_a(x, y, stack);
 
 }
@@ -174,7 +171,7 @@ void positionsdouble(int x, int y, t_stack *stack)
 {
 	while (i <= stack->last_a)
 	{
-		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
+		if (stack->a[i] == x || stack->a[i] == y)
 		{
 			stack->posa = i;
 			break;
@@ -183,7 +180,7 @@ void positionsdouble(int x, int y, t_stack *stack)
 	}
 	while (k <= stack->last_b)
 	{
-		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
+		if (stack->b[k] == x || stack->b[k] == y)
 		{
 			stack->posb = k;
 			break;
