@@ -6,14 +6,15 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:08:01 by matteocamil       #+#    #+#             */
-/*   Updated: 2023/12/14 16:41:44 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:46:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
 #include "../push_swap.h"
-typedef struct s_stack
+
+typedef struct finta
 {
 	int move //mosse prov
     int m //mosse def
@@ -23,7 +24,7 @@ typedef struct s_stack
     int nt //numero + o - def
 	int stck; //s
 	int yt; //l'altro y
-}	t_stack;
+}	t_finta;
 /*ogni numero viene calcolato, una funzione cerca quello prima e quello dopo, se nello stack b sono
  adiacenti allora la funzione le salta*/
 
@@ -50,11 +51,12 @@ void mosse2(int x, t_stack *stack)
 		y = takemajor(stack, x);
 		smistamento(stack, x);
 	}
-	if (takemajoraac(stack, x, stack->max) && x == stack->max)
+	/*if (takemajoraac(stack, x, stack->max) && x == stack->max)
 	{stack, x
 		y = takemajorac(stack, x, stack->max);
 		smistamento(stack, x, stack->max);
-	}
+	} in numero massimo se cerca cerca cose
+	 dopo trova 1 nell*altro sctack*/
 	if (takeminor(stack, x) && x != 1)
 	{
 		y = takemajor(stack, x);
@@ -72,8 +74,9 @@ void choosenumbers0(t_stack *stack)
 {
 	int k;
 
-	while (!checktotal(stack))
+	while (!checktotal(stack)) //fase 1 mi metto insisme tutti i conseguenziali
 	{
+		stack->tmp = 2000000;
 		k = 0;
 		while (k <= stack->last_b)
 		{
@@ -85,7 +88,7 @@ void choosenumbers0(t_stack *stack)
 	while (!finalpush(stack))
 	{
 		k = 0;
-		while (k <= stack->last_b)
+		while (k <= stack->last_b)//fase 2, metto a posto gli array indpendentemente
 		{
 			mosse2(stack->b[k], stack)
 			k++;
@@ -98,7 +101,7 @@ void choosenumbers0(t_stack *stack)
 		}
 		azionamosse
 	}
-	while (stack->last_b != 0)
+	while (stack->last_b != 0)// fase 3 me metto a pushare tutto ordinato nell´altro stack
 		ft_pa(stack);
 }
 
@@ -120,7 +123,6 @@ int calculatestacks(int x, int y, t_stack *stack)
 	{
 		if (stack->a[i] == x || stack->a[i] == y)
 			 stk += 10 ;
-
 		i++;
 	}
 	i = 0;
@@ -188,14 +190,14 @@ void positionsdouble(int x, int y, t_stack *stack)
 		k++:
 	}
 }
+////////il sistema di pos a e buggato fortegit add .
 
 void doublemoves(int x, int y, t_stack *stack)
 {
 	positionsdouble(x, y, stack);
-	if (stack->a[stack->posa] > stack->b[stack->posb] && stack->posa > stack->posb)
+	if (stack->posa > stack->posb)
 	{
-
-
+		if (stack->tmp > stack->posa)
 
 	}
 	else if (stack->a[stack->posa] < stack->b[stack->posb] && stack->posa > stack->posb)
@@ -204,7 +206,7 @@ void doublemoves(int x, int y, t_stack *stack)
 
 
 	}
-	else if (stack->a[stack->posa] < stack->b[stack->posb] && stack->posa < stack->posb)
+	else if (stack->posa < stack->posb)
 	{
 
 
@@ -218,7 +220,10 @@ void doublemoves(int x, int y, t_stack *stack)
 	}
 }
 
+int numpos(t_stack *stack)
+{
 
+}
 
 
 

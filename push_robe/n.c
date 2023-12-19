@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:13:38 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/14 06:49:43 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:45:40 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,52 +116,10 @@ int n(int x, t_stack *stack)
 		return (nsure(pos, nstack(x, stack), stack))
 	}
 	else
-		return(-1);
-
-}
-
-
-
-int checktotal(t_stack *stack)
-{
-	int i;
-	int num;
-
-	num = 0;
-	i = 0;
-	while (i <= stack->last_a)
-	{
-		num += n(stack->a[i], stack)
-		i++;
-	}
-	i = 0;
-	while (i <= stack->last_b)
-	{
-		num += n(stack->a[i], stack)
-		i++;
-	}
-	if (num >= (stack->max\2) * 4)
-		return (1);
-	else
 		return(0);
-}
-int finalpush(t_stack *stack)
-{
-	int i;
 
-	i = 0;
-	while (i < stack->last_a)
-	{
-		if (!(stack->a[i + 1] == stack->a[i] + 1))
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (i < stack->last_b)
-	{
-		if (!(stack->a[i + 1] == stack->a[i] - 1))
-			return (0);
-	i++;
-	}
-	return (1)
 }
+
+
+
+

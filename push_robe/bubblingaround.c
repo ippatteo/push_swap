@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 20:29:53 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/08 23:48:37 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:45:13 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 void dispari(t_stack *stack)
 {
-    while(stack->last_b + 1 != ((ac - 1)/2 + (ac - 1)%2))
+    while(stack->last_b + 1 != ((ac - 1)/2)) //+ (ac - 1)%2)) questo pezzo serve se devo avere numeri dispari su b
     {
-        if (stack->a[0]%2)
+        if (stack->a[0]%2 && stack->a[0] != stack->max)
             ft_pb(stack);
         else
             ft_ra(stack);
@@ -36,7 +36,7 @@ int calculatestacks(int x, int y, t_stack *stack)
 	{
 		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
 			stack->stck += 10 ;
-		
+
 		i++:
 	}
 	while (k <= stack->last_b)
@@ -85,12 +85,12 @@ int calculatenumbers(int x, int y, t_stack *stack)
 }
 
 void calculate1arraya(t_stack *stack)
-{ 
+{
     stack->mosse = 2000000;
 	if (stack->a[stack->posa] > stack->a[stack->posb])
         smistamentostaamagb(stack);
     if (stack->a[stack->posa] < stack->a[stack->posb])
-        smistamentostaaminb(stack);           
+        smistamentostaaminb(stack);
 }
 
 void smistamentostaamagb(t_stack *stack)
@@ -100,14 +100,14 @@ void smistamentostaamagb(t_stack *stack)
         stack->mosse = stack->posb + n(stack->posa, stack->a);
         stack->move = 1;
     }
-    if (stack->mosse > (2*(stack->posa + n(stack->posa, stack->a)) 
+    if (stack->mosse > (2*(stack->posa + n(stack->posa, stack->a))
             + (stack->last_a - stack->posb)))
     {
-        stack->mosse = (2*(stack->posa + n(stack->posa, stack->a)) 
+        stack->mosse = (2*(stack->posa + n(stack->posa, stack->a))
         + (stack->last_a - stack->posb));
         stack->move = 2;
     }
-    if (stack->mosse > (2*(stack->posa + n(stack->posa, stack->a)) 
+    if (stack->mosse > (2*(stack->posa + n(stack->posa, stack->a))
          + (stack->last_a - stack->posb)))
     {
         stack->mosse = ((stack->last_a - stack->posa) - 1 + n(stack->posb, stack->a));
@@ -117,7 +117,7 @@ void smistamentostaamagb(t_stack *stack)
     {
         stack->mosse = 2*(stack->last_a - stack->posb) + 3* n(stack->posb, stack->a) + stack->posa;
         stack->move = 4;
-    }     
+    }
 }
 
 void smistamentostaaminb(t_stack *stack)
@@ -139,13 +139,13 @@ void smistamentostaaminb(t_stack *stack)
                 - n(stack->posa, stack->a) - stack->posb;
             stack->move = 3;
         }
-        if (stack->mosse > 2*(stack->last_a - stack->posb) 
+        if (stack->mosse > 2*(stack->last_a - stack->posb)
             + 2 + stack->posa + n(stack->posa, stack->a) + n(stack->posb, stack->a))
         {
-            stack->mosse = 2*(stack->last_a - stack->posb) 
+            stack->mosse = 2*(stack->last_a - stack->posb)
             + 2 + stack->posa + n(stack->posa, stack->a) + n(stack->posb, stack->a);
             stack->move = 4;
-        }     
+        }
     }
 
 
