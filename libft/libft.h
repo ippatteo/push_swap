@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 03:00:55 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/14 16:50:45 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:17:29 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strdup(const char *s1);
 char	*ft_strnstr(const char *hk, const char *nd, size_t len);
-int		ft_atoi(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s, char *b);
 char	*ft_strtrim(char const *s1, char const *set);

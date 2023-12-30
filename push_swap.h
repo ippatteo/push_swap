@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:06:42 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/14 16:34:10 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:30:09 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ typedef struct s_stack
     int defb;
     int cmp;
     int tmp;
-    int min;
-    int max;
+	int min;
+	int max;
+	int	stck;
+	int	mid;
+	int error;
 }	t_stack;
 
 int		checkna(int x, t_stack *stack);

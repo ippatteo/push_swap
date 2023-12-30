@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:31:21 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/13 15:12:28 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:08:01 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_sa(t_stack *stack)
 	stack->a[0] = stack->a[1];
 	stack->a[1] = tmp;
 	write(1, "sa\n", 3);
-    stack->mosse++;
+	stack->mosse++;
 	return (1);
 }
 

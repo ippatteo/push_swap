@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   takearg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteocamilli <matteocamilli@student.42    +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:05:57 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/05 11:19:07 by matteocamil      ###   ########.fr       */
+/*   Updated: 2023/12/30 16:57:17 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 int	main(int ac, char **av)
 {
-    t_stack stack;
-    takeints(&stack, ac, av);
-	renum(&stack, ac);
-	stack.mosse = 0;
-    //ft_printf("\ndisordine = %d\n", controldisord(&stack));
-	//bubble(&stack);
-    //ft_printf("last a = %d\n", stack.last_a);
-    ordinededdio(&stack, ac);
-	printarray(stack.a, &stack);
-    //ft_printf("\ndisordine = %d\n", controldisord(&stack));
-    ft_printf("mosse = %d\n", stack.mosse);
-	return (0);
+	t_stack stack;
+
+	if (ac > 2)
+	{
+		points(&stack, ac);
+		takeints(&stack, ac, av);
+		errors(&stack);
+		renum(&stack, ac);
+		stack.mosse = 0;
+    	//ft_printf("\ndisordine = %d\n", controldisord(&stack));
+		//bubble(&stack);
+    	//ft_printf("last a = %d\n", stack.last_a);
+    	//ordinededdio(&stack, ac);
+		printarray(stack.a, &stack);
+    	//ft_printf("\ndisordine = %d\n", controldisord(&stack));
+    	ft_printf("mosse = %d\n", stack.mosse);
+		return (0);
+	}
+	else
+		return (0);
 }
 
 void	takeints(t_stack *stack, int ac, char **av)
@@ -39,9 +47,9 @@ void	takeints(t_stack *stack, int ac, char **av)
     while (j <= ac - 2)
 	{
 		stack->a[j] = ft_atoi(av[j + 1]);
-        stack->copy[j] = ft_atoi(av[j + 1]);
-        stack->last_a = j;
-        j++;
+		stack->copy[j] = ft_atoi(av[j + 1]);
+		stack->last_a = j;
+		j++;
 	}
     stack->last_b = 0;
 }
@@ -66,7 +74,7 @@ int controlarray(int *i, t_stack *stack)
 	while (k <= stack->last_a)
     {
 		if (i[k] != k)
-            return (0) ;
+			return (0);
         else
             k++;
     }
@@ -77,10 +85,10 @@ int controlarray(int *i, t_stack *stack)
 
     void bubble(t_stack *stack)
     {
-        int j = 0;
-        while (!controlarray(stack->a, stack))
-        {
-            if (stack->a[0] == stack->max && stack->a[1] == 0)
+		int j = 0;
+		while (!controlarray(stack->a, stack))
+		{
+			if (stack->a[0] == stack->max && stack->a[1] == 0)
             {
                 ft_ra(stack);
                 ft_ra(stack);
@@ -90,11 +98,20 @@ int controlarray(int *i, t_stack *stack)
                 ft_sa(stack);
                 ft_ra(stack);
             }
-            else 
+            else
                 ft_ra(stack);
             j++;
         }
-        
+
     }
 
-/
+void dispari(t_stack *stack)
+{
+    while(stack->last_b + 1 != ((stack->max)/2)) //+ (ac - 1)%2)) questo pezzo serve se devo avere numeri dispari su b
+    {
+		if (stack->a[0]%2 && stack->a[0] != stack->max)
+			ft_pb(stack);
+        else
+            ft_ra(stack);
+    }
+}

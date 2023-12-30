@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 06:35:14 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/14 06:49:59 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:11:31 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 int takeminor(t_stack *stack, int x)
 {
-    int i;
+	int i;
 	int k;
 
 	while (i <= stack->last_a)
 	{
 		if (stack->a[i] = x - 1)
-        {
-            if(x = stack->a[i + 1])
+		{
+		if(x = stack->a[i + 1])
 				return (0);
 			return (stack->a[i]);
-        }
-        i++;
+		}
+		i++;
 	}
 	while (k <= stack->last_b)
 	{
 		if (stack->b[k] = x - 1)
-        {
-            if(x = stack->b[k - 1])
+		{
+			if(x = stack->b[k - 1])
 				return (0);
 			return (stack->b[k]);
         }
@@ -114,11 +114,11 @@ int takeminorone(t_stack *stack, int x, int ac)
 	while (k <= stack->last_b)
 	{
 		if (stack->b[k] = stack->max)
-        {
-            if(x = stack->b[k + 1])
+		{
+			if(x = stack->b[k + 1])
 				return (0);
 			return (stack->b[k]);
-        }
+		}
 		k++;
 	}
 	return (0);

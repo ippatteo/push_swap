@@ -7,7 +7,6 @@ CFLAGS := -Wall -Wextra -Werror -g
 SOURCE := push_robe/*.c
 LIBFT := libft
 PRINTF := printf/*.c
-MINILIBX := mlx_linux/
 
 all:
 	make -C $(LIBFT)

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:33:48 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/19 16:59:34 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:31:28 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int checktotal(t_stack *stack)
 	i = 0;
 	while (i <= stack->last_a)
 	{
-		num += n(stack->a[i], stack)
+		num += n(stack->a[i], stack);
 		i++;
 	}
 	i = 0;
 	while (i <= stack->last_b)
 	{
-		num += n(stack->a[i], stack)
+		num += n(stack->a[i], stack);
 		i++;
 	}
 	if (num >= (stack->max\2) * 4)
@@ -53,7 +53,7 @@ int finalpush(t_stack *stack)
 	{
 		if (!(stack->a[i + 1] == stack->a[i] - 1))
 			return (0);
-	i++;
+		i++;
 	}
 	return (1)
 }
@@ -62,4 +62,5 @@ void points(t_stack *stack, int ac)
 {
 	stack->max = ac - 1;
 	stack->mid = stack->max / 2;
+	stack->error = 0;
 }

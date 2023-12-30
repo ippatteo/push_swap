@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:13:38 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/19 15:45:40 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:10:37 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int checkna(int x, t_stack *stack)
 
 	while (i <= stack->last_a)
 	{
-		if (stack->a[i] == x && stack->stack_a[i-1] ==
-		x-1 && stack->stack_a[i+1] == x+1)
+		if (stack->a[i] == x && stack->a[i - 1] ==
+		x-1 && stack->a[i + 1] == x+1)
 			return(0);
-		i++:
+		i++;
 	}
 	i = 0;
 	while (i <= stack->last_b)
 	{
-		if (stack->stack_b[i] == x && stack->stack_b[i-1] == x+1 &&
-		stack->stack_b[i+1] == x-1)
+		if (stack->b[i] == x && stack->b[i-1] == x+1 &&
+		stack->b[i+1] == x - 1)
 			return (0);
 		i++;
 	}
@@ -41,18 +41,18 @@ int nstack(int x, t_stack *stack)
 	i = 0;
 	while (i <= stack->last_a)
 	{
-		if (stack->stack_a[i] == x)
-			return (0)
+		if (stack->a[i] == x)
+			return (0);
 		i++;
 	}
 	i = 0;
 	while (i <= stack->last_b)
 	{
 		if (stack->b[i] == x)
-			return(1)
+			return(1);
 		i++;
 	}
-	return (-1)
+	return (-1);
 }
 int npos(int x, t_stack *stack)
 {
@@ -63,18 +63,18 @@ int npos(int x, t_stack *stack)
 	i = 0;
 	while (i <= stack->last_a)
 	{
-		if (stack->stack_a[i] == x)
-			return (pos)
+		if (stack->a[i] == x)
+			return (pos);
 		i++;
 	}
 	i = 0;
 	while (i <= stack->last_b)
 	{
 		if (stack->b[i] == x)
-			return(pos)
+			return(pos);
 		i++;
 	}
-	return (-1)
+	return (-1);
 }
 
 
@@ -82,7 +82,7 @@ int nsure(int pos, int st, t_stack *stack)
 {
 	int n;
 
-	n = 1
+	n = 1;
 	if (st)
 	{
 		while (stack->b[pos - n] == stack->b[pos] + n)
@@ -113,7 +113,7 @@ int n(int x, t_stack *stack)
 	pos = npos(x, stack);
 	if (checkna(x, stack))
 	{
-		return (nsure(pos, nstack(x, stack), stack))
+		return (nsure(pos, nstack(x, stack), stack));
 	}
 	else
 		return(0);
