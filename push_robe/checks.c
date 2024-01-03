@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:33:48 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/30 16:31:28 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:24:20 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int finalpush(t_stack *stack)
 	{
 		if (!(stack->a[i + 1] == stack->a[i] - 1))
 			return (0);
-		i++;
+	i++;
 	}
 	return (1)
 }
@@ -62,5 +62,4 @@ void points(t_stack *stack, int ac)
 {
 	stack->max = ac - 1;
 	stack->mid = stack->max / 2;
-	stack->error = 0;
 }

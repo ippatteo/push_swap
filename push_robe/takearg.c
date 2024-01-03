@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:05:57 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/30 16:57:17 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:24:01 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ int	main(int ac, char **av)
 {
 	t_stack stack;
 
-	if (ac > 2)
+	if (ac >= 2)
 	{
 		points(&stack, ac);
-		takeints(&stack, ac, av);
+		if (ac > 2)
+			takeints(&stack, ac, av);
+		else if (ac == 2)
+			return (0); //per ora lasciamo cosi
 		errors(&stack);
 		renum(&stack, ac);
 		stack.mosse = 0;
@@ -33,7 +36,11 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	else
+	{
+		//write(2, "Error\n", 6);
 		return (0);
+	}
+		
 }
 
 void	takeints(t_stack *stack, int ac, char **av)

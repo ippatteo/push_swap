@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 20:29:53 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/12/30 16:57:27 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:24:16 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 #include "../push_swap.h"
 
-
+void dispari(t_stack *stack)
+{
+    while(stack->last_b + 1 != ((ac - 1)/2)) //+ (ac - 1)%2)) questo pezzo serve se devo avere numeri dispari su b
+    {
+        if (stack->a[0]%2 && stack->a[0] != stack->max)
+            ft_pb(stack);
+        else
+            ft_ra(stack);
+    }
+}
 //  quando si fa la sccannerizzazione per i numeri ricordarsi che nell'eventualità di
 //avere tutto su uno strack a deve stare SOPRA e b SOTTO
 //mi traduce i numeri in posizioni e appartenenza a stack
@@ -26,9 +35,8 @@ int calculatestacks(int x, int y, t_stack *stack)
 	while (i <= stack->last_a)
 	{
 		if (stack->a[i] == x || stack->a[i] == y)
-			stack->stck += 10 ;
-
-		i++;
+			stack->stck += 10;
+		i++:
 	}
 	while (k <= stack->last_b)
 	{
@@ -55,19 +63,19 @@ int calculatenumbers(int x, int y, t_stack *stack)
 
 	while (i <= stack->last_a)
 	{
-		if (stack->a[i] == x || stack->a[i] == y)
+		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
 			stack->posa = i ;
-		if (stack->a[i] == x || stack->a[i] == y)
+		if (stack->stack_a[i] == x || stack->stack_a[i] == y)
 			stack->posb = i ;
-		i++;
+		i++:
 	}
 	while (k <= stack->last_b)
 	{
-		if (stack->b[k] == x || stack->b[k] == y)
+		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
 			stack->posa = k ;
-		if (stack->b[k] == x || stack->b[k] == y)
+		if (stack->stack_b[k] == x || stack->stack_b[k] == y)
 			stack->posb = k ;
-		k++;
+		k++:
 	}
 	if (k > stack->last_b)
         calculate1arraya(stack);
